@@ -45,3 +45,20 @@ class Solution3:
 print(Solution3().longestCommonPrefix(["dog", "racecar", "car"]))
 print(Solution3().longestCommonPrefix(["flower", "flow", "flight"]))
 print(Solution3().longestCommonPrefix(["a"]))
+
+
+class Solution4:
+    def isValid(self, s):
+        lst = []
+        mapping = {')': '(', '}': '{', ']': '['}
+        for bracket in s:
+            if bracket in mapping:
+                top_element = lst.pop() if lst else False
+                if mapping[bracket] != top_element:
+                    return False
+            else:
+                lst.append(bracket)
+        return not lst
+
+
+print(Solution4().isValid("()[]]{}"))
