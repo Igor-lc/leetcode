@@ -1,5 +1,6 @@
 from collections import Counter, defaultdict
 
+# ver_4 space complexity O(1)
 class Solution:
     def majorityElement(self, nums):
         count = 1
