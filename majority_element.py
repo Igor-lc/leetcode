@@ -1,7 +1,8 @@
 from collections import Counter, defaultdict
 
+
 # ver_4 space complexity O(1)
-class Solution:
+class Solution4:
     def majorityElement(self, nums):
         count = 1
         prev = nums[0]
@@ -11,13 +12,12 @@ class Solution:
                 prev = el
 
             count += 1 if prev == el else -1
+            print(prev, count, el)
 
         return prev
 
 
-'''
-# ver_3
-class Solution:
+class Solution3:
     def majorityElement(self, nums):
         elements = defaultdict(int)
 
@@ -27,14 +27,12 @@ class Solution:
         return max(elements, key=elements.get)
 
 
-# ver_2
-class Solution:
+class Solution2:
     def majorityElement(self, nums):
         counts = Counter(nums)
         return max(counts, key=counts.get)
 
 
-# ver_1
 class Solution:
     def majorityElement(self, nums):
         elements = {}
@@ -50,11 +48,11 @@ class Solution:
             if elements[el] > max_[1]:
                 max_ = (el, elements[el])
         return max_[0]
-'''
 
-# print(Solution().majorityElement([3,2,6,3,6,4,6,5,6]))
-'''print(Solution().majorityElement([6,5,5]))
-print(Solution().majorityElement([8,9,8,9,8]))
-print(Solution().majorityElement([8,8,7,7,7]))
-print(Solution().majorityElement([6,6,6,7,7]))
-print(Solution().majorityElement([2,2,1,1,1,2,2]))'''
+
+print(Solution4().majorityElement([3,2,6,3,6,4,6,5,6]))
+print(Solution4().majorityElement([6,5,5]))
+print(Solution4().majorityElement([8,9,8,9,8]))
+print(Solution3().majorityElement([8,8,7,7,7]))
+print(Solution2().majorityElement([6,6,6,7,7]))
+print(Solution().majorityElement([2,2,1,1,1,2,2]))
